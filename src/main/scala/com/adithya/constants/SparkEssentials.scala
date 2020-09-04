@@ -33,13 +33,15 @@ object SparkEssentials {
     .load()
 
   def writeDataframeToCsv (dataFrame: DataFrame, filename : String) : Unit = dataFrame.write
+    .format("csv")
     .mode(SaveMode.Overwrite)
     .option("header", "true")
-    .json(DATA_RESOURCE + filename)
+    .save(DATA_RESOURCE + filename)
 
   def writeDataframeToJson (dataframe :DataFrame ,fileName :  String ) : Unit  =   dataframe.write
+    .format("json")
     .mode(SaveMode.Overwrite)
-    .json(DATA_RESOURCE + fileName)
+    .save(DATA_RESOURCE + fileName)
 
   def writeDataframeToDatabase (dataframe :DataFrame, table_name: String) : Unit  =  dataframe.write
     .format("jdbc")
