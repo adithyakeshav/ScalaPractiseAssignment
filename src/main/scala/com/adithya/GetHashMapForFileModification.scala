@@ -18,14 +18,7 @@ object GetHashMapForFileModification extends App{
       val files = folder.listFiles()
 
       for (file <- files) {
-        try
-          {
-            val days = getLastModifiedInDays(file)
-            if (days >= 7)
-              map(file.getName) =  new Date(file.lastModified())
-          } catch {
-          case e:Exception =>
-        }
+        map(file.getName) =  new Date(file.lastModified())
       }
     }
     map
