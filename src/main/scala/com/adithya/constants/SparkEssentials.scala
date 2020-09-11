@@ -9,7 +9,7 @@ object SparkEssentials {
     .config("spark.master", "local")
     .getOrCreate()
 
-  val DATA_RESOURCE = "src/main/resources/data/"
+  val DATA_RESOURCE = "src\\main\\resources\\data\\"
 
   def getDfFromJson (fileName : String, multiline : String = "") =
     spark.read
